@@ -10,7 +10,7 @@ var a = function () {
    attribs.tagName = name;
    for( key in attributes ) {
     if( attributes.hasOwnProperty(key) ) {
-     if( attributes[key] !== attribs[key] ) {
+     if( typeof attributes[key] === 'function' ? !attributes[key](attribs[key]) : attributes[key] !== attribs[key] ) {
       return;
      }
     }
